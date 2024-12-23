@@ -199,7 +199,8 @@
 
     <section id="boka">
         <h2>Boka våra tjänster</h2>
-        <form action="mailto:info@paketfart.se" method="post" enctype="text/plain">
+        <!-- Här använder vi en säker POST-metod -->
+        <form action="https://dinserver.se/hantera_formular" method="POST" enctype="application/x-www-form-urlencoded" id="booking-form">
             <input type="text" name="namn" placeholder="Ditt namn" required>
             <input type="email" name="email" placeholder="Din e-post" required>
             <textarea name="beskrivning" placeholder="Beskrivning av uppdraget" rows="5" required></textarea>
@@ -256,6 +257,8 @@
 
         window.onload = initMap;
     </script>
+
+    <!-- Ladda Google Maps API med din egen API-nyckel -->
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAmjJeFekLHc2v41GGiz-bxcoxGJDKx4pM"></script>
 </body>
 </html>
