@@ -129,20 +129,44 @@
             background: #fff;
             border-radius: 6px;
             box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+            border: 3px solid transparent; /* Grundläggande ram */
+            transition: border-color 0.3s ease; /* Mjuk övergång */
         }
 
-        form input, form textarea, form button {
+        form:hover {
+            border-color: #0073e6; /* Färg när användaren hovrar */
+        }
+
+        form input, form textarea {
             width: 100%;
             margin: 10px 0;
-            padding: 10px;
+            padding: 15px;
             font-size: 16px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-sizing: border-box;
+            background: #f9f9f9;
+            transition: all 0.3s ease;
+        }
+
+        form input:focus, form textarea:focus {
+            border-color: #0073e6;
+            background: #fff;
+            outline: none;
+            box-shadow: 0 0 5px rgba(0, 115, 230, 0.3);
         }
 
         form button {
+            width: 100%;
+            padding: 15px;
+            font-size: 18px;
+            font-weight: bold;
             background-color: #0073e6;
             color: white;
             border: none;
+            border-radius: 5px;
             cursor: pointer;
+            transition: background-color 0.3s ease;
         }
 
         form button:hover {
