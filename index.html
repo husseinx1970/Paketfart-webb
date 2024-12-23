@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Paketfart - snabbare än väntat </title>
+    <title>Paketfart - snabbare än väntat</title>
     <style>
         /* Grundläggande styling */
         body {
@@ -148,8 +148,8 @@
 </head>
 <body>
     <header>
-        <img src="Paketfart (1).png" alt="Beskrivning av bilden">
-        <h1 style="https://mail.google.com/mail/u/0?ui=2&ik=0dd925fbb8&attid=0.1&permmsgid=msg-f:1819059162127202095&th=193e98ab9002f72f&view=att&zw&disp=safe"> </h2>
+        <img src="Paketfart (1).png" alt="Paketfart logo">
+        <h1>Paketfart - snabbare än väntat</h1>
     </header>
 
     <nav>
@@ -177,10 +177,11 @@
         <p>
             Vi erbjuder ett brett utbud av tjänster, från expressleveranser till flyttjänster. Våra fordon och vår personal är anpassade för att hantera dina behov – stora som små.
             Med oss får du mer än bara transport – du får trygghet, punktlighet och service i världsklass.
-   </p>
+        </p>
         <div id="slider">
-            <img src="https://images.eniro.com/cim/1059691?name=default" alt="Bild 2 - Flyttjänster">
-             <img src= "https://sites-files-addictive.s3.eu-north-1.amazonaws.com/image/cdf26d78-ebc7-44d8-b641-0423d79b12c8/headerbild-nedre_1704792186034.png"alt="Bild 3 - Säker transport av specialgods">
+            <!-- Här är de två bilderna som ska visas -->
+            <img src="https://via.placeholder.com/800x400.png?text=Flyttjänster" alt="Bild 2 - Flyttjänster">
+            <img src="https://via.placeholder.com/800x400.png?text=Säker+Transport+av+Specialgods" alt="Bild 3 - Säker transport av specialgods">
             <button class="prev">❮</button>
             <button class="next">❯</button>
         </div>
@@ -221,37 +222,38 @@
         }
 
         function nextImage() {
-            currentIndex = (currentIndex + 1) % images.length;
+            currentIndex = (currentIndex + 1) % images.length;  // Växlar till nästa bild
             showImage(currentIndex);
         }
 
         function prevImage() {
-            currentIndex = (currentIndex - 1 + images.length) % images.length;
+            currentIndex = (currentIndex - 1 + images.length) % images.length;  // Växlar till föregående bild
             showImage(currentIndex);
         }
 
         nextBtn.addEventListener("click", nextImage);
         prevBtn.addEventListener("click", prevImage);
 
+        // Automatisk bildväxling var 5:e sekund
         setInterval(nextImage, 5000);
 
-        // Google Maps
+        // Google Maps - initiera karta
         function initMap() {
             const location = { lat: 57.740508, lng: 12.078441 };
             const map = new google.maps.Map(document.getElementById("map"), {
-                zoom:
+                zoom: 15,
+                center: location,
+            });
+            new google.maps.Marker({
+                position: location,
+                map: map,
+            });
+        }
 
-15, 
-                center: location, 
-            }); 
-            new google.maps.Marker({ 
-                position: location, 
-                map: map, 
-            }); 
-        } 
+        window.onload = initMap;
+    </script>
 
-        window.onload = initMap; 
-    </script> 
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAmjJeFekLHc2v41GGiz-bxcoxGJDKx4pM"></script> 
-</body> 
+    <!-- Google Maps API -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAmjJeFekLHc2v41GGiz-bxcoxGJDKx4pM"></script>
+</body>
 </html>
