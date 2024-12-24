@@ -49,10 +49,6 @@
             text-align: center;
         }
 
-        section h2 {
-            color: #0073e6;
-        }
-
         footer {
             background: #333;
             color: white;
@@ -177,7 +173,6 @@
 <body>
     <header>
         <img src="Paketfart (1).png" alt="Beskrivning av bilden">
-        <h1></h1>
     </header>
 
     <nav>
@@ -188,7 +183,6 @@
     </nav>
 
     <section id="om-oss">
-        <h2>Om oss</h2>
         <p>
             Välkommen till Paketfart, ett nyetablerat företag i Göteborg som sätter snabbhet och kvalitet i första rummet.
             Vi är specialiserade på leveranser över hela Sverige och erbjuder flexibla lösningar för både privatpersoner och företag.
@@ -201,7 +195,6 @@
     </section>
 
     <section id="tjanster">
-        <h2>Våra tjänster</h2>
         <p>
             Vi erbjuder ett brett utbud av tjänster, från expressleveranser till flyttjänster. Våra fordon och vår personal är anpassade för att hantera dina behov – stora som små.
             Med oss får du mer än bara transport – du får trygghet, punktlighet och service i världsklass.
@@ -215,19 +208,21 @@
     </section>
 
     <section id="kontakt">
-        <h2>Kontakta oss</h2>
         <p>E-post: <a href="mailto:info@paketfart.se">info@paketfart.se</a></p>
         <p>Telefon: 0790574975</p>
         <div id="map"></div>
     </section>
 
     <section id="boka">
-        <h2>Boka våra tjänster</h2>
-        <!-- Här använder vi en säker POST-metod -->
         <form action="https://dinserver.se/hantera_formular" method="POST" enctype="application/x-www-form-urlencoded" id="booking-form">
-            <input type="text" name="namn" placeholder="Ditt namn" required>
-            <input type="email" name="email" placeholder="Din e-post" required>
-            <textarea name="beskrivning" placeholder="Beskrivning av uppdraget" rows="5" required></textarea>
+            <input type="text" name="namn" id="namn" placeholder="Ange ditt fullständiga namn" required>
+
+            <input type="tel" name="telefon" id="telefon" placeholder="Ange ditt telefonnummer" pattern="[0-9]{10,}" required>
+
+            <input type="email" name="email" id="email" placeholder="Ange din e-postadress" required>
+
+            <textarea name="beskrivning" id="beskrivning" placeholder="Beskriv kortfattat vad du behöver hjälp med..." rows="5" required></textarea>
+
             <button type="submit">Skicka bokning</button>
         </form>
     </section>
