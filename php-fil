@@ -1,26 +1,30 @@
 <?php
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
+    // Hämta data från formuläret
     $namn = htmlspecialchars($_POST['namn']);
     $telefon = htmlspecialchars($_POST['telefon']);
     $email = htmlspecialchars($_POST['email']);
     $beskrivning = htmlspecialchars($_POST['beskrivning']);
 
-    $to = "info@paketfart.se"; // Din e-post
-    $subject = "Ny bokning från $namn";
-    $message = "Du har fått en ny bokning:\n\n";
-    $message .= "Namn: $namn\n";
-    $message .= "Telefon: $telefon\n";
-    $message .= "E-post: $email\n\n";
-    $message .= "Beskrivning:\n$beskrivning\n";
-
-    $headers = "From: $email\r\n";
-    $headers .= "Reply-To: $email\r\n";
+    // E-postinställningar
+    $till = "info@paketfarten.se"; // Mottagare
+    $ämne = "Ny bokningsförfrågan från $namn";
+    $meddelande = "
+    Bokningsdetaljer:
+    -----------------
+    Namn: $namn
+    Telefon: $telefon
+    E-post: $email
+    Beskrivning: 
+    $beskrivning
+    ";
+    $headers = "Från: $email\r\n";
 
     // Skicka e-post
-    if (mail($to, $subject, $message, $headers)) {
-        echo "<h1>Tack! Din bokning skickades.</h1>";
+    if (mail($till, $ämne, $meddelande, $headers)) {
+        echo "<h1>Tack för din bokning, $namn! Vi återkommer så snart som möjligt.</h1>";
     } else {
-        echo "<h1>Tyvärr! Något gick fel. Försök igen.</h1>";
+        echo "<h1>Ett fel uppstod vid skickandet av ditt meddelande. Försök igen senare.</h1>";
     }
 } else {
     echo "<h1>Ogiltig begäran.</h1>";
