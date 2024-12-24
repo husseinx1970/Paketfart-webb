@@ -222,15 +222,12 @@
     </section>
 
     <section id="boka">
+        <h2>Boka nu</h2>
         <form action="https://dinserver.se/hantera_formular" method="POST" enctype="application/x-www-form-urlencoded" id="booking-form">
             <input type="text" name="namn" id="namn" placeholder="Ange ditt fullständiga namn" required>
-
             <input type="tel" name="telefon" id="telefon" placeholder="Ange ditt telefonnummer" pattern="[0-9]{10,}" required>
-
             <input type="email" name="email" id="email" placeholder="Ange din e-postadress" required>
-
             <textarea name="beskrivning" id="beskrivning" placeholder="Beskriv kortfattat vad du behöver hjälp med..." rows="5" required></textarea>
-
             <button type="submit">Skicka bokning</button>
         </form>
     </section>
