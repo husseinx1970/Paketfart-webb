@@ -183,8 +183,7 @@
     <nav>
         <a href="#om-oss">Om oss</a>
         <a href="#tjanster">Tjänster</a>
-        <a href="#kontakt">Kontakt</a>
-        <a href="#boka">Boka nu</a>
+        <a href="#kontakt">Kontakt och Boka nu</a>
     </nav>
 
     <section id="om-oss">
@@ -219,17 +218,6 @@
         <p>E-post: <a href="mailto:info@paketfarten.se">info@paketfart.se</a></p>
         <p>Telefon: 0790574975</p>
         <div id="map"></div>
-    </section>
-
-    <section id="boka">
-        <h2>Boka nu</h2>
-        <form action="send_mail.php" method="POST" enctype="application/x-www-form-urlencoded" id="booking-form">
-            <input type="text" name="namn" id="namn" placeholder="Ange ditt fullständiga namn" required>
-            <input type="tel" name="telefon" id="telefon" placeholder="Ange ditt telefonnummer" pattern="[0-9]{10,}" required>
-            <input type="email" name="email" id="email" placeholder="Ange din e-postadress" required>
-            <textarea name="beskrivning" id="beskrivning" placeholder="Beskriv kortfattat vad du behöver hjälp med..." rows="5" required></textarea>
-            <button type="submit">Skicka bokning</button>
-        </form>
     </section>
 
     <footer>
