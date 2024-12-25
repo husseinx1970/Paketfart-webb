@@ -239,71 +239,37 @@
         <h3>Vad våra kunder säger</h3>
         <div id="testimonial-slider">
             <div class="testimonial-item active">
-                p>"Jag är så tacksam för Paketfart! De hjälpte oss att flytta på ett så professionellt sätt. Allt gick snabbt och smidigt – ingen stress."</p>
+                <p>"Jag är så tacksam för Paketfart! De hjälpte oss att flytta på ett så professionellt sätt. Allt gick snabbt och smidigt – ingen stress."</p>
                 <span>– Maria, Göteborg</span>
             </div>
             <div class="testimonial-item">
-            <p>"Vi behövde få ett paket levererat snabbt till vårt kontor och Paketfart levererade precis som lovat! Jättebra service!"</p>
-
+                <p>"Vi behövde få ett paket levererat snabbt till vårt kontor och Paketfart levererade precis som lovat! Jättebra service!"</p>
                 <span>– Johan, Malmö</span>
             </div>
             <div class="testimonial-item">
-            <p>"Tjänsterna är verkligen på topp! Flytten gick mycket snabbare än jag förväntade mig, och chaufförerna var supertrevliga."</p>
-
+                <p>"Tjänsterna är verkligen på topp! Flytten gick mycket snabbare än jag förväntade mig, och chaufförerna var supertrevliga."</p>
                 <span>– Emma, Stockholm</span>
             </div>
             <!-- Extra testimonials -->
             <div class="testimonial-item">
-            <p>"En av de bästa erfarenheterna jag haft med ett transportföretag. Flytten gick så smidigt, och vi kände oss alltid trygga med Paketfart."</p>
-
+                <p>"En av de bästa erfarenheterna jag haft med ett transportföretag. Flytten gick så smidigt, och vi kände oss alltid trygga med Paketfart."</p>
                 <span>– Anna, Uppsala</span>
             </div>
             <div class="testimonial-item">
-            <p>"Jag var nervös inför flytten, men Paketfart gjorde hela processen så enkel. Jag fick hjälp hela vägen och de var verkligen effektiva."</p>
-
+                <p>"Jag var nervös inför flytten, men Paketfart gjorde hela processen så enkel. Jag fick hjälp hela vägen och de var verkligen effektiva."</p>
                 <span>– Erik, Västerås</span>
             </div>
             <div class="testimonial-item">
-            <p>"Stort tack till Paketfart för att ni hjälpte oss flytta snabbt och utan några problem. Ni var verkligen punktliga och professionella."</p>
-
-                <span>– Linda, Östersund</span>
-            </div>
-            <div class="testimonial-item">
-            <p>"Jag blev så positivt överraskad av hur snabbt och effektivt ni jobbade. Vi behövde hjälp med tunga saker och ni löste allt så bra!" </p>
-
-                <span>– Peter, Linköping</span>
-            </div>
-            <div class="testimonial-item">
-            <p>"Så glad att vi valde Paketfart! De gjorde hela processen enkel och stressfri. Jag kommer definitivt använda er nästa gång vi behöver flytta."</p>
-
-                <span>– Johanna, Göteborg</span>
-            </div>
-            <div class="testimonial-item">
-            <p>"Det var så lätt att boka med Paketfart. De kom i tid och hjälpte oss att flytta vårt kontor utan några problem. Rekommenderar starkt!"</p>
-
-                <span>– Mikael, Malmö</span>
-            </div>
-            <div class="testimonial-item">
-            <p>"Jag var imponerad av hur smidigt allt gick. Tack för att ni gjorde flytten så enkel och stressfri!"</p>
-
-                <span>– Sofia, Lund</span>
-            </div>
-            <div class="testimonial-item">
-            <p>"Från början till slut var allt så professionellt. Det var skönt att ha ett företag som verkligen vet vad de gör."</p>
-
-                <span>– Olof, Stockholm</span>
-            </div>
-            <div class="testimonial-item">
-            <p>"Paketfart var snabba, pålitliga och väldigt hjälpsamma. Vi hade en hel del möbler att flytta och allt kom fram utan en repa!"</p>
-
-                <span>– Camilla, Borås</span>
+                <p>"Stort tack till Paketfart för den fantastiska servicen! Vi fick våra möbler levererade precis i tid, och allt var i perfekt skick."</p>
+                <span>– Lisa, Örebro</span>
             </div>
         </div>
     </section>
 
     <section id="kontakt">
         <h2>Kontakt och Boka nu</h2>
-        <form>
+        <p>Fyll i formuläret nedan för att boka våra tjänster eller få mer information. Vi ser fram emot att höra från dig!</p>
+        <form action="send_email.php" method="post">
             <input type="text" name="name" placeholder="Ditt namn" required>
             <input type="tel" name="phone" placeholder="Telefonnummer" required>
             <input type="email" name="email" placeholder="E-postadress" required>
@@ -314,49 +280,7 @@
     </section>
 
     <footer>
-        <p>&copy; 2024 Paketfart. Alla rättigheter förbehållna.</p>
+        <p>&copy; 2023 Paketfart AB. All rights reserved.</p>
     </footer>
-
-    <script>
-        // Testimonials Rotation
-        const testimonials = document.querySelectorAll('#testimonial-slider .testimonial-item');
-        let currentTestimonial = 0;
-
-        function rotateTestimonials() {
-            testimonials[currentTestimonial].classList.remove('active');
-            currentTestimonial = (currentTestimonial + 1) % testimonials.length;
-            testimonials[currentTestimonial].classList.add('active');
-        }
-        setInterval(rotateTestimonials, 5000);
-
-        // Image Slider Rotation
-        const images = document.querySelectorAll('#image-slider img');
-        let currentImage = 0;
-
-        function rotateImages() {
-            images[currentImage].classList.remove('active');
-            currentImage = (currentImage + 1) % images.length;
-            images[currentImage].classList.add('active');
-        }
-        setInterval(rotateImages, 5000);
-
-        // Google Map
-        function initMap() {
-            const location = { lat: 57.740508, lng: 12.078441 };
-            const map = new google.maps.Map(document.getElementById("map"), {
-                zoom: 15,
-                center: location,
-            });
-            new google.maps.Marker({
-                position: location,
-                map: map,
-            });
-        }
-
-        window.onload = initMap;
-    </script>
-
-    <!-- Ladda Google Maps API med din egen API-nyckel -->
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAmjJeFekLHc2v41GGiz-bxcoxGJDKx4pM"></script>
 </body>
 </html>
