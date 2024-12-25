@@ -144,54 +144,6 @@
             position: relative;
         }
 
-        /* Formulär */
-        form {
-            max-width: 700px;
-            margin: 30px auto;
-            padding: 30px;
-            background: white;
-            border-radius: 6px;
-            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
-            border: 3px solid transparent;
-            transition: border-color 0.3s ease;
-        }
-
-        form:hover {
-            border-color: #004aad;
-        }
-
-        form input, form textarea {
-            width: 100%;
-            margin: 10px 0;
-            padding: 15px;
-            font-size: 16px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            box-sizing: border-box;
-        }
-
-        form input:focus, form textarea:focus {
-            border-color: #004aad;
-            outline: none;
-            box-shadow: 0 0 5px rgba(0, 74, 173, 0.3);
-        }
-
-        form button {
-            width: 100%;
-            padding: 15px;
-            font-size: 18px;
-            font-weight: bold;
-            background-color: #004aad;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-
-        form button:hover {
-            background-color: #00327a;
-        }
-
         /* Kartan */
         #map {
             width: 100%;
@@ -205,7 +157,7 @@
 <body>
     <header>
         <img src="Paketfart (1).png" alt="Paketfart Logotyp">
-        <h1></h1>
+        <h1>Paketfart - Snabbare än väntat</h1>
     </header>
 
     <nav>
@@ -217,6 +169,8 @@
     <section id="om-oss">
         <h2>Om oss</h2>
         <p>Välkommen till Paketfart – där snabbhet möter perfektion! Vi erbjuder pålitliga leverans- och flyttjänster anpassade för dina behov.</p>
+        <p>Vi på Paketfart är dedikerade till att erbjuda snabb, säker och effektiv transporttjänst. Vårt team består av erfarna professionella som är engagerade i att leverera dina varor på bästa möjliga sätt. Vi förstår att varje kund är unik och har olika behov, därför strävar vi efter att skräddarsy våra tjänster för att möta just dina krav.</p>
+        <p>Med vår moderna fordonsflotta och avancerade logistiksystem kan vi säkerställa att din leverans sker i tid och utan krångel. Oavsett om du behöver hjälp med en snabb leverans, en komplex flytt eller specialtransporter, är vi här för att hjälpa dig.</p>
     </section>
 
     <section id="tjanster" class="gallery">
@@ -260,27 +214,72 @@
                 <span>– Erik, Västerås</span>
             </div>
             <div class="testimonial-item">
-                <p>"Stort tack till Paketfart för den fantastiska servicen! Vi fick våra möbler levererade precis i tid, och allt var i perfekt skick."</p>
-                <span>– Lisa, Örebro</span>
+                <p>"Stort tack till Paketfart för att ni hjälpte oss flytta snabbt och utan några problem. Ni var verkligen punktliga och professionella."</p>
+                <span>– Linda, Östersund</span>
+            </div>
+            <div class="testimonial-item">
+                <p>"Jag blev så positivt överraskad av hur snabbt och effektivt ni jobbade. Vi behövde hjälp med tunga saker och ni löste allt så bra!"</p>
+                <span>– Peter, Linköping</span>
+            </div>
+            <div class="testimonial-item">
+                <p>"Så glad att vi valde Paketfart! De gjorde hela processen enkel och stressfri. Jag kommer definitivt använda er nästa gång vi behöver flytta."</p>
+                <span>– Sofia, Helsingborg</span>
             </div>
         </div>
     </section>
 
     <section id="kontakt">
-        <h2>Kontakt och Boka nu</h2>
-        <p>Fyll i formuläret nedan för att boka våra tjänster eller få mer information. Vi ser fram emot att höra från dig!</p>
-        <form action="send_email.php" method="post">
-            <input type="text" name="name" placeholder="Ditt namn" required>
-            <input type="tel" name="phone" placeholder="Telefonnummer" required>
-            <input type="email" name="email" placeholder="E-postadress" required>
-            <textarea name="description" rows="5" placeholder="Beskriv ditt behov" required></textarea>
-            <button type="submit">Skicka</button>
-        </form>
-        <div id="map"></div>
+        <h3>Kontakt och Boka nu</h3>
+        <p>För att boka våra tjänster eller om du har några frågor, tveka inte att kontakta oss!</p>
+        <a href="mailto:info@paketfart.se" class="btn">Skicka e-post</a>
+        <a href="tel:+46701234567" class="btn">Ring oss</a>
     </section>
 
     <footer>
-        <p>&copy; 2023 Paketfart AB. All rights reserved.</p>
+        <p>&copy; 2024 Paketfart. Alla rättigheter förbehållna.</p>
+        <p>Besök oss på: Stora Gatan 1, 123 45 Stockholm, Sverige</p>
     </footer>
+
+    <script>
+        // Testimonials slider
+        let testimonialIndex = 0;
+        const testimonials = document.querySelectorAll('.testimonial-item');
+
+        function showTestimonial(n) {
+            testimonials.forEach((item, index) => {
+                item.classList.remove('active');
+                if (index === n) {
+                    item.classList.add('active');
+                }
+            });
+        }
+
+        function nextTestimonial() {
+            testimonialIndex = (testimonialIndex + 1) % testimonials.length;
+            showTestimonial(testimonialIndex);
+        }
+
+        setInterval(nextTestimonial, 5000);
+
+        // Image slider
+        let imageIndex = 0;
+        const images = document.querySelectorAll('#image-slider img');
+
+        function showImage(n) {
+            images.forEach((img, index) => {
+                img.classList.remove('active');
+                if (index === n) {
+                    img.classList.add('active');
+                }
+            });
+        }
+
+        function nextImage() {
+            imageIndex = (imageIndex + 1) % images.length;
+            showImage(imageIndex);
+        }
+
+        setInterval(nextImage, 3000);
+    </script>
 </body>
 </html>
