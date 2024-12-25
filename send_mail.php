@@ -16,8 +16,8 @@ try {
     $mail->isSMTP();
     $mail->Host = 'smtp.gmail.com';  // Använd din SMTP-server
     $mail->SMTPAuth = true;
-    $mail->Username = 'din.email@gmail.com';  // Din e-postadress
-    $mail->Password = 'ditt_lösenord';  // Ditt lösenord eller appspecifikt lösenord
+    $mail->Username = 'info@paketfarten.se';  // Din e-postadress
+    $mail->Password = 'rmoa naxc hlkf lhbk';  // Ditt lösenord eller appspecifikt lösenord
     $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
     $mail->Port = 587;
 
