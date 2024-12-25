@@ -7,7 +7,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $description = $_POST['description'];
 
     // E-postinställningar
-    $to = "ditt.email@exempel.com"; // Ändra till din egen e-postadress
+    $to = "info@paketfarten.se"; // Ändra till din egen e-postadress
     $subject = "Ny kundförfrågan från $name";
     $message = "Namn: $name\nTelefonnummer: $phone\nE-post: $email\nBeskrivning:\n$description";
     $headers = "From: $email";
