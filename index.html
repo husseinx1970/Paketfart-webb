@@ -3,20 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Paketfart-Snabbare än väntat</title>
+    <title>Paketfart - Snabbare än väntat</title>
     <style>
         /* Grundläggande styling */
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Arial', sans-serif;
             margin: 0;
             padding: 0;
             line-height: 1.6;
             color: #333;
-            background-color: #f4f4f4;
+            background-color: #f9f9f9;
         }
 
         header {
-            background-color: #000;
+            background-color: #002147;
+            color: white;
             text-align: center;
             padding: 50px 20px;
         }
@@ -29,7 +30,7 @@
         nav {
             display: flex;
             justify-content: center;
-            background-color: #0073e6;
+            background-color: #004aad;
             padding: 10px 0;
         }
 
@@ -41,7 +42,7 @@
         }
 
         nav a:hover {
-            background-color: #005bb5;
+            background-color: #00327a;
         }
 
         section {
@@ -49,12 +50,13 @@
             text-align: center;
         }
 
-        section h2 {
-            color: #0073e6;
+        section h2, section h3 {
+            color: #004aad;
+            margin-bottom: 20px;
         }
 
         footer {
-            background: #333;
+            background: #002147;
             color: white;
             text-align: center;
             padding: 20px 0;
@@ -65,76 +67,97 @@
             margin-top: 20px;
             padding: 10px 20px;
             color: white;
-            background-color: #0073e6;
+            background-color: #004aad;
             text-decoration: none;
             border-radius: 5px;
         }
 
         .btn:hover {
-            background-color: #005bb5;
+            background-color: #00327a;
         }
 
-        /* Bildgalleri */
-        #slider {
+        /* Testimonials */
+        .testimonials {
+            background-color: #f4f4f4;
+            padding: 50px 20px;
+        }
+
+        .testimonials h3 {
+            font-size: 1.5em;
+        }
+
+        #testimonial-slider {
+            position: relative;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .testimonial-item {
+            font-style: italic;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+        }
+
+        .testimonial-item.active {
+            opacity: 1;
+            position: relative;
+        }
+
+        .testimonial-item p {
+            margin-bottom: 10px;
+        }
+
+        .testimonial-item span {
+            font-weight: bold;
+            color: #002147;
+        }
+
+        /* Galleri */
+        .gallery {
+            padding: 50px 20px;
+        }
+
+        #image-slider {
             position: relative;
             max-width: 800px;
-            margin: 20px auto;
+            margin: 0 auto;
             overflow: hidden;
             border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
         }
 
-        #slider img {
+        #image-slider img {
             width: 100%;
             height: auto;
-            display: none;
-        }
-
-        #slider img.active {
-            display: block;
-        }
-
-        #slider button {
+            opacity: 0;
+            transition: opacity 0.5s ease;
             position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            background-color: rgba(0, 0, 0, 0.5);
-            color: white;
-            border: none;
-            padding: 10px;
-            cursor: pointer;
-            border-radius: 5px;
+            top: 0;
+            left: 0;
         }
 
-        #slider .prev {
-            left: 10px;
+        #image-slider img.active {
+            opacity: 1;
+            position: relative;
         }
 
-        #slider .next {
-            right: 10px;
-        }
-
-        /* Google Map styling */
-        #map {
-            width: 100%;
-            height: 400px;
-            margin-top: 20px;
-        }
-
-        /* Bokningsformulär */
+        /* Formulär */
         form {
             max-width: 700px;
             margin: 30px auto;
             padding: 30px;
-            background: #fff;
+            background: white;
             border-radius: 6px;
             box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
-            border: 3px solid transparent; /* Grundläggande ram */
-            transition: border-color 0.3s ease; /* Mjuk övergång */
+            border: 3px solid transparent;
+            transition: border-color 0.3s ease;
         }
 
         form:hover {
-            border-color: #0073e6; /* Färg när användaren hovrar */
+            border-color: #004aad;
         }
 
         form input, form textarea {
@@ -145,15 +168,12 @@
             border: 1px solid #ddd;
             border-radius: 5px;
             box-sizing: border-box;
-            background: #f9f9f9;
-            transition: all 0.3s ease;
         }
 
         form input:focus, form textarea:focus {
-            border-color: #0073e6;
-            background: #fff;
+            border-color: #004aad;
             outline: none;
-            box-shadow: 0 0 5px rgba(0, 115, 230, 0.3);
+            box-shadow: 0 0 5px rgba(0, 74, 173, 0.3);
         }
 
         form button {
@@ -161,75 +181,125 @@
             padding: 15px;
             font-size: 18px;
             font-weight: bold;
-            background-color: #0073e6;
+            background-color: #004aad;
             color: white;
             border: none;
             border-radius: 5px;
             cursor: pointer;
-            transition: background-color 0.3s ease;
         }
 
         form button:hover {
-            background-color: #005bb5;
+            background-color: #00327a;
+        }
+
+        /* Kartan */
+        #map {
+            width: 100%;
+            height: 400px;
+            margin-top: 30px;
+            border-radius: 10px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
         }
     </style>
 </head>
 <body>
     <header>
-        <img src="Paketfart (1).png" alt="Beskrivning av bilden">
-        <h1></h1>
+        <img src="Paketfart (1).png" alt="Paketfart Logotyp">
+        <h1>Paketfart - Din partner för pålitliga och snabba leveranser</h1>
     </header>
 
     <nav>
         <a href="#om-oss">Om oss</a>
         <a href="#tjanster">Tjänster</a>
-        <a href="#kontakt">Kontakt</a>
-        <a href="#boka">Boka nu</a>
+        <a href="#kontakt">Kontakt och Boka nu</a>
     </nav>
 
     <section id="om-oss">
         <h2>Om oss</h2>
-        <p>
-            Välkommen till Paketfart, ett nyetablerat företag i Göteborg som sätter snabbhet och kvalitet i första rummet.
-            Vi är specialiserade på leveranser över hela Sverige och erbjuder flexibla lösningar för både privatpersoner och företag.
-            Med vår moderna fordonsflotta och erfarna chaufförer är vi redo att ta oss an allt från paketleveranser till större flyttuppdrag.
-            Oavsett om du behöver hjälp med att flytta hemmet, leverera varor eller transportera specialgods, kan du lita på oss.
-        </p>
-        <p>
-            Vi på Paketfart strävar efter att överträffa dina förväntningar, varje gång. Tillsammans skapar vi en smidig och trygg leveransupplevelse.
-        </p>
+        <p>Välkommen till Paketfart – där snabbhet möter perfektion! Vi erbjuder pålitliga leverans- och flyttjänster anpassade för dina behov.</p>
     </section>
 
-    <section id="tjanster">
-        <h2>Våra tjänster</h2>
-        <p>
-            Vi erbjuder ett brett utbud av tjänster, från expressleveranser till flyttjänster. Våra fordon och vår personal är anpassade för att hantera dina behov – stora som små.
-            Med oss får du mer än bara transport – du får trygghet, punktlighet och service i världsklass.
-        </p>
-        <div id="slider">
-            <img src="https://images.eniro.com/cim/1059691?name=default" alt="Bild 1 - Flyttjänster" class="active">
-            <img src="https://sites-files-addictive.s3.eu-north-1.amazonaws.com/image/cdf26d78-ebc7-44d8-b641-0423d79b12c8/headerbild-nedre_1704792186034.png" alt="Bild 2 - Säker transport av specialgods">
-            <button class="prev">❮</button>
-            <button class="next">❯</button>
+    <section id="tjanster" class="gallery">
+        <h3>Våra tjänster</h3>
+        <p>Vi erbjuder en rad tjänster för att möta både privata och företags behov. Våra tjänster inkluderar:</p>
+        <ul>
+            <li><strong>Expressleveranser:</strong> Snabba leveranser för små och stora paket, så att du kan vara säker på att dina varor når sin destination i tid.</li>
+            <li><strong>Flyttjänster:</strong> Professionella och effektiva flyttjänster för både hem och företag, med säker transport av dina ägodelar.</li>
+            <li><strong>Specialgods:</strong> Vi hanterar även speciella transporter som konstverk, antikviteter och ömtåliga varor.</li>
+            <li><strong>Företagslogistik:</strong> Skräddarsydda logistiklösningar för att optimera ditt företags leveransbehov och lagerhantering.</li>
+        </ul>
+        <div id="image-slider">
+            <img src="https://images.eniro.com/cim/1059691?name=default" alt="Flyttjänster" class="active">
+            <img src="https://sites-files-addictive.s3.eu-north-1.amazonaws.com/image/cdf26d78-ebc7-44d8-b641-0423d79b12c8/headerbild-nedre_1704792186034.png" alt="Specialtransporter">
+            <img src="https://via.placeholder.com/800x400" alt="Expressleveranser">
+        </div>
+    </section>
+
+    <section class="testimonials">
+        <h3>Vad våra kunder säger</h3>
+        <div id="testimonial-slider">
+            <div class="testimonial-item active">
+                <p>"Fantastisk service och snabb leverans! Rekommenderas varmt."</p>
+                <span>– Maria, Göteborg</span>
+            </div>
+            <div class="testimonial-item">
+                <p>"Jag kunde inte vara nöjdare. Paketfart överträffade mina förväntningar!"</p>
+                <span>– Johan, Malmö</span>
+            </div>
+            <div class="testimonial-item">
+                <p>"Snabb och säker transport. Jag kommer definitivt använda deras tjänster igen."</p>
+                <span>– Emma, Stockholm</span>
+            </div>
+            <!-- Extra testimonials -->
+            <div class="testimonial-item">
+                <p>"Tack för att ni gjorde min flytt så enkel och smidig! Ni var snabba och effektiva!"</p>
+                <span>– Anna, Uppsala</span>
+            </div>
+            <div class="testimonial-item">
+                <p>"Ert team var fantastiskt! De hjälpte mig flytta utan några problem och var så vänliga."</p>
+                <span>– Erik, Västerås</span>
+            </div>
+            <div class="testimonial-item">
+                <p>"Professionell service! Flytten gick mycket snabbare än jag förväntat mig."</p>
+                <span>– Linda, Östersund</span>
+            </div>
+            <div class="testimonial-item">
+                <p>"Ni gjorde verkligen en fantastisk insats. Jag är mycket nöjd med resultatet."</p>
+                <span>– Peter, Linköping</span>
+            </div>
+            <div class="testimonial-item">
+                <p>"Jag rekommenderar er till alla som behöver hjälp med att flytta. Ni är bäst!"</p>
+                <span>– Johanna, Göteborg</span>
+            </div>
+            <div class="testimonial-item">
+                <p>"Er service var snabb och pålitlig. Vi fick hjälp med både packning och transport!"</p>
+                <span>– Mikael, Malmö</span>
+            </div>
+            <div class="testimonial-item">
+                <p>"Jag var orolig för att min flytt skulle bli jobbig, men ni gjorde allt så enkelt!"</p>
+                <span>– Sofia, Lund</span>
+            </div>
+            <div class="testimonial-item">
+                <p>"Superbra service och så trevlig personal. Ni gjorde verkligen min flytt till en lättare upplevelse!"</p>
+                <span>– Olof, Stockholm</span>
+            </div>
+            <div class="testimonial-item">
+                <p>"Stort tack till er för att ni gjorde min företagsflytt så snabb och smidig!"</p>
+                <span>– Camilla, Borås</span>
+            </div>
         </div>
     </section>
 
     <section id="kontakt">
-        <h2>Kontakta oss</h2>
-        <p>E-post: <a href="mailto:info@paketfarten.se">info@paketfart.se</a></p>
-        <p>Telefon: 0790574975</p>
-        <div id="map"></div>
-    </section>
-
-    <section id="boka">
-        <h2>Boka nu</h2>
-        <form action="send_mail.php" method="POST" enctype="application/x-www-form-urlencoded" id="booking-form">
-            <input type="text" name="namn" id="namn" placeholder="Ange ditt fullständiga namn" required>
-            <input type="tel" name="telefon" id="telefon" placeholder="Ange ditt telefonnummer" pattern="[0-9]{10,}" required>
-            <input type="email" name="email" id="email" placeholder="Ange din e-postadress" required>
-            <textarea name="beskrivning" id="beskrivning" placeholder="Beskriv kortfattat vad du behöver hjälp med..." rows="5" required></textarea>
-            <button type="submit">Skicka bokning</button>
+        <h2>Kontakt och Boka nu</h2>
+        <form>
+            <input type="text" name="name" placeholder="Ditt namn" required>
+            <input type="tel" name="phone" placeholder="Telefonnummer" required>
+            <input type="email" name="email" placeholder="E-postadress" required>
+            <textarea name="description" rows="5" placeholder="Beskriv ditt behov" required></textarea>
+            <button type="submit">Skicka</button>
         </form>
+        <div id="map"></div>
     </section>
 
     <footer>
@@ -237,36 +307,29 @@
     </footer>
 
     <script>
-        // Bildspel
-        const images = document.querySelectorAll("#slider img");
-        const prevBtn = document.querySelector("#slider .prev");
-        const nextBtn = document.querySelector("#slider .next");
-        let currentIndex = 0;
+        // Testimonials Rotation
+        const testimonials = document.querySelectorAll('#testimonial-slider .testimonial-item');
+        let currentTestimonial = 0;
 
-        function showImage(index) {
-            images.forEach((img, i) => {
-                img.classList.toggle("active", i === index);
-            });
+        function rotateTestimonials() {
+            testimonials[currentTestimonial].classList.remove('active');
+            currentTestimonial = (currentTestimonial + 1) % testimonials.length;
+            testimonials[currentTestimonial].classList.add('active');
         }
+        setInterval(rotateTestimonials, 5000);
 
-        function nextImage() {
-            currentIndex = (currentIndex + 1) % images.length;
-            showImage(currentIndex);
+        // Image Slider Rotation
+        const images = document.querySelectorAll('#image-slider img');
+        let currentImage = 0;
+
+        function rotateImages() {
+            images[currentImage].classList.remove('active');
+            currentImage = (currentImage + 1) % images.length;
+            images[currentImage].classList.add('active');
         }
+        setInterval(rotateImages, 5000);
 
-        function prevImage() {
-            currentIndex = (currentIndex - 1 + images.length) % images.length;
-            showImage(currentIndex);
-        }
-
-        nextBtn.addEventListener("click", nextImage);
-        prevBtn.addEventListener("click", prevImage);
-
-        // Visa första bilden och starta automatiskt bildspel
-        showImage(currentIndex);
-        setInterval(nextImage, 5000);
-
-        // Google Maps
+        // Google Map
         function initMap() {
             const location = { lat: 57.740508, lng: 12.078441 };
             const map = new google.maps.Map(document.getElementById("map"), {
@@ -283,6 +346,6 @@
     </script>
 
     <!-- Ladda Google Maps API med din egen API-nyckel -->
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAmjJeFekLHc2v41GGiz-bxcoxGJDKx4pM"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY"></script>
 </body>
 </html>
