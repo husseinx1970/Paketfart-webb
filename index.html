@@ -281,8 +281,7 @@
 
         setInterval(nextImage, 5000);
 
-
-          // Google Map
+        // Google Map
         function initMap() {
             const location = { lat: 57.740508, lng: 12.078441 };
             const map = new google.maps.Map(document.getElementById("map"), {
@@ -299,6 +298,6 @@
     </script>
 
     <!-- Ladda Google Maps API med din egen API-nyckel -->
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAmjJeFekLHc2v41GGiz-bxcoxGJDKx4pM"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAmjJeFekLHc2v41GGiz-bxcoxGJDKx4pM&callback=initMap" async defer></script>
 </body>
-</html>  
+</html>
