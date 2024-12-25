@@ -231,8 +231,8 @@
     <section id="kontakt">
         <h3>Kontakt och Boka nu</h3>
         <p>För att boka våra tjänster eller om du har några frågor, tveka inte att kontakta oss!</p>
-        <a href="mailto:info@paketfart.se" class="btn">Skicka e-post</a>
-        <a href="tel:+46701234567" class="btn">Ring oss</a>
+        <a href="mailto:info@paketfarten.se" class="btn">Skicka e-post</a>
+        <a href="tel:+46 79 057 49 75" class="btn">Ring oss</a>
     </section>
 
     <footer>
@@ -279,7 +279,26 @@
             showImage(imageIndex);
         }
 
-        setInterval(nextImage, 3000);
+        setInterval(nextImage, 5000);
+
+
+          // Google Map
+        function initMap() {
+            const location = { lat: 57.740508, lng: 12.078441 };
+            const map = new google.maps.Map(document.getElementById("map"), {
+                zoom: 15,
+                center: location,
+            });
+            new google.maps.Marker({
+                position: location,
+                map: map,
+            });
+        }
+
+        window.onload = initMap;
     </script>
+
+    <!-- Ladda Google Maps API med din egen API-nyckel -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAmjJeFekLHc2v41GGiz-bxcoxGJDKx4pM"></script>
 </body>
-</html>
+</html>  
