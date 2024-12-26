@@ -142,17 +142,6 @@
             font-size: 1.0em;
         }
 
-        /* Liten karta */
-        #small-map {
-            width: 100%;
-            height: 200px; /* Liten fyrkantig karta */
-            margin-top: 30px;
-            margin-left: auto;
-            margin-right: auto;
-            margin-bottom: 30px;
-            border-radius: 10px;
-            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
-        }
 
         /* Ny telefon och e-post ruta */
         .contact-info {
@@ -330,9 +319,7 @@
         <a href="tel:+46 79 057 49 75" class="btn">Ring oss: +46 79 057 49 75</a>
     </section>
 
-    <!-- Liten karta -->
-    <div id="small-map"></div> <!-- Liten fyrkantig karta -->
-
+ 
     <footer>
         <p>&copy; 2024 Paketfart. Alla rättigheter förbehållna.</p>
         <p>Besök oss på: Vagnmakaregatan 2, 415 72 Göteborg, Sverige</p>
@@ -356,21 +343,7 @@
         setInterval(showTestimonial, 5000);
         showTestimonial(); // Initiera den första testimonialen
 
-        // Karta
-        function initMap() {
-            const mapOptions = {
-                center: { lat: 57.740508, lng: 12.078441 },
-                zoom: 15
-            };
-
-            const map = new google.maps.Map(document.getElementById('small-map'), mapOptions);
-
-            const marker = new google.maps.Marker({
-                position: { lat: 57.740508, lng: 12.078441 },
-                map: map,
-                title: 'Vår Plats'
-            });
-        }
+    
 
         // Bildrotation var 10s
         let currentImageIndex = 0;
